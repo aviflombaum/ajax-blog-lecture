@@ -10,14 +10,25 @@
   <%= @post.content %>
 </p>
 
-<p>
-  <%= link_to "Load Comments", post_comments_path(@post), :class => "load_comments", :remote => true %>
-</p>
+<!-- <p>
+  <%#= link_to "Load Comments", post_comments_path(@post), :class => "load_comments", :remote => true %>
+</p> -->
 
 <div class="comments">
+  <%= render 'comments/comments' %>
+</div>
+
+<%#= form_for(@comment, :url => post_comments_path(@post)) do |f|  %>
+<%= form_for([@post, @comment], :remote => true) do |f|  %>
+  <%= f.text_area :content %>
+
+  <p><%= f.submit %></p>
+<% end %>
+
+<!-- <div class="comments">
   <ol>
   </ol>
-</div>
+</div> -->
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

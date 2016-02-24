@@ -16,3 +16,9 @@
 
 
 2. The ability to submit a new comment via AJAX
+
+  A. Hijack the submit even of our form.
+  B. We need to take the form data and send it to the server as a AJAX Post request
+    - How are we going to know the URL of that POST request
+  C. We need actually take the data from the AJAX POST request and create the corresponding comment
+  D. Send back HTML/JSON/JS of the comment that was added and inject that comment into the comment OL on the DOM.
